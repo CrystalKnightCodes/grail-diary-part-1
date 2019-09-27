@@ -10,7 +10,7 @@ import UIKit
 
 class POIsTableViewController: UIViewController {
 
-    var points: [POI?] = []
+    var points: [POI] = []
         
     @IBOutlet weak var pointTableView: UITableView!
     
@@ -31,9 +31,22 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "POICell", for: indexPath) as? POITableViewCell else { fatalError() }
     
+   let point = points[indexPath.row]
+    cell.poi = point
+    
     return cell
     }
 
 }
 
-
+// MARK: Connect to AddPOIView
+extension POIsTableViewController: AddPOIDelegate {
+    func poiWasAdded(_ poi: POI) {
+        points.append(poi)
+        dismiss(animated: true, completion: nil)
+       // tableView.reloadData()
+        
+    }
+    
+    
+}
