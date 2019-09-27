@@ -9,17 +9,31 @@
 import UIKit
 
 class POIsTableViewController: UIViewController {
-
-    var points: [POI] = []
         
     @IBOutlet weak var pointTableView: UITableView!
     
+    var points: [POI] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.identifier {
+    case "AddPOIModalSegue":
+        guard let addPOIVC = segue.destination as? AddPOIViewController else { fatalError() }
+        
+        addPOIVC.poiDelegate = self
+       /*
+    case "ShowPOIDetailSegue":
+        guard let indexPath = pointTableView.indexPathForSelectedRow,
+            let POIDetailVC = segue.destination as? POIDetailViewController else { fatalError() }
+        
+        POIDetailVC = points[indexPath.row] */
+    default:
+        fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+    }
+}
 }
 
 // MARK: Table View Data Source
@@ -39,12 +53,14 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 }
 
+
 // MARK: Connect to AddPOIView
 extension POIsTableViewController: AddPOIDelegate {
     func poiWasAdded(_ poi: POI) {
         points.append(poi)
         dismiss(animated: true, completion: nil)
-       // tableView.reloadData()
+      // FIXME: This attempt to reloadData says that tableView is ambiguous at numberOfRowsInSection
+        pointTableView.reloadData()
         
     }
     
