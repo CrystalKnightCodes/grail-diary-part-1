@@ -16,7 +16,7 @@ class POIsTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
@@ -36,4 +36,4 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 }
 
-// TODO: - Wire up the delegate property of the tableview in the storyboard to the view controller
+
