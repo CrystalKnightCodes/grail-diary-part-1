@@ -82,6 +82,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pointTableView" destination="JfU-8W-s0u" id="SMc-Me-tZQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,6 +224,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oUa-Vt-tHP"/>
                     </view>
+                    <connections>
+                        <outlet property="clue1TextField" destination="uiT-4w-Hdc" id="Wkp-ho-p4g"/>
+                        <outlet property="clue2TextField" destination="PJh-9u-U0b" id="Laf-zO-9XJ"/>
+                        <outlet property="clue3TextField" destination="9zn-16-y1N" id="CNf-I8-Kxi"/>
+                        <outlet property="countryTextField" destination="gKd-7F-ikA" id="FkG-GV-0P8"/>
+                        <outlet property="locationTextField" destination="AgE-uq-4ot" id="jfE-pK-lR4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEz-Be-Uin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
