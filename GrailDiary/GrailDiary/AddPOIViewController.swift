@@ -10,8 +10,6 @@ import UIKit
 
 protocol AddPOIDelegate {
     func poiWasAdded(_ poi: POI)
-    
-    
 }
 
 class AddPOIViewController: UIViewController {

@@ -23,7 +23,6 @@ class POIDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        // Do any additional setup after loading the view.
     }
     private func updateViews() {
         guard let poi = poi else { return }
