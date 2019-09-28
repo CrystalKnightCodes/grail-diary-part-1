@@ -26,10 +26,10 @@ class POIDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     private func updateViews() {
-        guard let aPoint = poi else { return }
-        locationLabel.text = aPoint.location
-        countryLabel.text = aPoint.country
-        cluesTextView.text = "\(aPoint.clues)"
+        guard let poi = poi else { return }
+        locationLabel.text = poi.location
+        countryLabel.text = poi.country
+        cluesTextView.text = "\(poi.clues)"
     }
 
     /*

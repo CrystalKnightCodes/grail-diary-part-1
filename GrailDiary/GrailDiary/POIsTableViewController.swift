@@ -12,7 +12,7 @@ class POIsTableViewController: UIViewController {
         
     @IBOutlet weak var pointTableView: UITableView!
     
-    var points: [POI] = []
+    var points: [POI] = [POI(location: "Fota", country: "Ireland", clues: ["Green", "Leprechans", "Animals"])]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,13 @@ class POIsTableViewController: UIViewController {
         guard let addPOIVC = segue.destination as? AddPOIViewController else { fatalError() }
         
         addPOIVC.poiDelegate = self
-       /*
+
     case "ShowPOIDetailSegue":
         guard let indexPath = pointTableView.indexPathForSelectedRow,
             let POIDetailVC = segue.destination as? POIDetailViewController else { fatalError() }
         
-        POIDetailVC = points[indexPath.row] */
+        POIDetailVC.poi = points[indexPath.row]
+        
     default:
         fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
     }
@@ -45,8 +46,8 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "POICell", for: indexPath) as? POITableViewCell else { fatalError() }
     
-   let point = points[indexPath.row]
-    cell.poi = point
+   let poi = points[indexPath.row]
+    cell.poi = poi
     
     return cell
     }
