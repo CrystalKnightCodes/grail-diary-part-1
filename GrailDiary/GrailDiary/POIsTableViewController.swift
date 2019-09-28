@@ -59,7 +59,6 @@ extension POIsTableViewController: AddPOIDelegate {
     func poiWasAdded(_ poi: POI) {
         points.append(poi)
         dismiss(animated: true, completion: nil)
-      // FIXME: This attempt to reloadData says that tableView is ambiguous at numberOfRowsInSection
         pointTableView.reloadData()
         
     }

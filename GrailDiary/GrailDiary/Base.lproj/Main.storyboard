@@ -155,6 +155,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mWx-pm-Kkz"/>
                     </view>
+                    <connections>
+                        <outlet property="cluesTextView" destination="IYw-x8-PsD" id="ndF-gM-hoN"/>
+                        <outlet property="countryLabel" destination="G7c-dV-mlU" id="NVQ-s6-ZYT"/>
+                        <outlet property="locationLabel" destination="lM9-ra-ihC" id="Ym1-gV-IzC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7p-vi-lbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
