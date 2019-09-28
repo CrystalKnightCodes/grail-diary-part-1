@@ -29,7 +29,11 @@ class POIDetailViewController: UIViewController {
         guard let poi = poi else { return }
         locationLabel.text = poi.location
         countryLabel.text = poi.country
-        cluesTextView.text = "\(poi.clues)"
+        var clueText: [String] = []
+        for clue in poi.clues {
+            clueText.append("\(clue?.description ?? "")\n")
+        }
+        cluesTextView.text = "\(clueText[0])\n\(clueText[1])\n\(clueText[2])"
     }
 
 }
