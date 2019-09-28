@@ -89,7 +89,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pointTableView" destination="JfU-8W-s0u" id="SMc-Me-tZQ"/>
+                        <outlet property="tableView" destination="JfU-8W-s0u" id="SMc-Me-tZQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class POIsTableViewController: UIViewController {
         
-    @IBOutlet weak var pointTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var points: [POI] = [POI(location: "Fota", country: "Ireland", clues: ["Green", "Leprechans", "Animals"])]
     
@@ -19,37 +19,37 @@ class POIsTableViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    switch segue.identifier {
-    case "AddPOIModalSegue":
-        guard let addPOIVC = segue.destination as? AddPOIViewController else { fatalError() }
+        switch segue.identifier {
+        case "AddPOIModalSegue":
+            guard let addPOIVC = segue.destination as? AddPOIViewController else { fatalError() }
         
         addPOIVC.poiDelegate = self
 
-    case "ShowPOIDetailSegue":
-        guard let indexPath = pointTableView.indexPathForSelectedRow,
+        case "ShowPOIDetailSegue":
+            guard let indexPath = tableView.indexPathForSelectedRow,
             let POIDetailVC = segue.destination as? POIDetailViewController else { fatalError() }
         
         POIDetailVC.poi = points[indexPath.row]
         
-    default:
-        fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+        default:
+            fatalError("An unknown segue was encountered: \(segue.identifier ?? "<No ID>")")
+        }
     }
-}
 }
 
 // MARK: Table View Data Source
 extension POIsTableViewController: UITableViewDataSource {
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return points.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return points.count
     }
 
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "POICell", for: indexPath) as? POITableViewCell else { fatalError() }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "POICell", for: indexPath) as? POITableViewCell else { fatalError() }
     
-   let poi = points[indexPath.row]
-    cell.poi = poi
+        let poi = points[indexPath.row]
+        cell.poi = poi
     
-    return cell
+        return cell
     }
 
 }
@@ -60,7 +60,7 @@ extension POIsTableViewController: AddPOIDelegate {
     func poiWasAdded(_ poi: POI) {
         points.append(poi)
         dismiss(animated: true, completion: nil)
-        pointTableView.reloadData()
+        tableView.reloadData()
         
     }
     
